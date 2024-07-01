@@ -14,7 +14,6 @@ body {
 }
 
 .grid-container {
-  box-sizing: content-box;
   width: 500px;
   height: 500px;
   display: flex;

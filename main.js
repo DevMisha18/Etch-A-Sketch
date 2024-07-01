@@ -1,17 +1,18 @@
-const divContainer = document.getElementsByClassName("grid-container")[0];
+const gridContainer = document.querySelector(".grid-container");
+const computedGridContainer = getComputedStyle(gridContainer);
 
-const numOfSquares = 16;
-const side = divContainer.offsetWidth / Math.sqrt(numOfSquares);
+numOfSideSquares = 20;
+const borderWidth = parseFloat(computedGridContainer.borderWidth)
+const side = (gridContainer.offsetWidth - 2*borderWidth) / numOfSideSquares;
 
 
 // Filling the grid with squares
-for (let i = 0; i < numOfSquares; i++) {
+for (let i = 0; i < numOfSideSquares*numOfSideSquares; i++) {
   let div = document.createElement("div");
 
-  div.className = "square";
-  div.style.boxSizing = "border-box";
-  div.style.border = "solid 2px black";
+  div.classList.add("square");
+  div.style.border = "solid 1px black";
   [div.style.width, div.style.height] = [`${side}px`, `${side}px`];
 
-  divContainer.appendChild(div);
+  gridContainer.appendChild(div);
 }
